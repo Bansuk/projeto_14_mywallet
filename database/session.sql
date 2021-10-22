@@ -1,0 +1,1 @@
+CREATE TABLE session (session_id SERIAL PRIMARY KEY, token TEXT NOT NULL, account_id INTEGER REFERENCES account(account_id));

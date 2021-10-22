@@ -1,0 +1,1 @@
+CREATE TABLE transaction (transaction_id SERIAL PRIMARY KEY, date DATE NOT NULL, description TEXT NOT NULL, value NUMERIC(12, 2) NOT NULL, account_id INTEGER REFERENCES account(account_id));
