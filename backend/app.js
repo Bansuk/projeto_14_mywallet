@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { getTransactions, postTransaction } from "./controllers/transaction.js";
-import { signUp, signIn } from "./controllers/account.js";
+import { signUp, signIn, signOut } from "./controllers/account.js";
 
 const app = express();
 
@@ -13,5 +13,6 @@ app.post("/transactions", postTransaction);
 
 app.post("/signup", signUp);
 app.post("/signin", signIn);
+app.delete("/signout", signOut);
 
 export default app;

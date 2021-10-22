@@ -55,6 +55,8 @@ const signIn = async (req, res) => {
             );
 
             res.send(token);
+        } else {
+            res.sendStatus(401);
         }
     } catch (error) {
         console.log(error);
@@ -62,4 +64,27 @@ const signIn = async (req, res) => {
     }
 };
 
-export { signUp, signIn };
+const signOut = async (req, res) => {
+    const token = req.headers.authorization?.replace("Bearer ", "");
+
+    if (!token) return res.sendStatus(401);
+
+    try {
+        const result = await connection.query(
+            "SELECT * FROM session WHERE token = $1",
+            [token]
+        );
+
+        if (!result.rowCount) return res.sendStatus(401);
+
+        await connection.query("DELETE FROM session WHERE token = $1;", [
+            token,
+        ]);
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+};
+
+export { signUp, signIn, signOut };
