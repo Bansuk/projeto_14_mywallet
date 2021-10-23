@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import { v4 as uuid } from "uuid";
 import connection from "../../database/database.js";
-import { accountSchema, signInSchema } from "../../validation/account.js";
+import { accountSchema, signInSchema } from "../../validation/schemes.js";
 
 const signUp = async (req, res) => {
     const { name, email, password } = req.body;
@@ -43,6 +43,8 @@ const signIn = async (req, res) => {
             "SELECT * FROM account WHERE email = $1;",
             [email]
         );
+
+        //nao achar email
 
         const user = result.rows[0];
 

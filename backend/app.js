@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/transactions", getTransactions);
-app.post("/transactions", postTransaction);
+app.post("/transaction", postTransaction);
 
 app.post("/signup", signUp);
 app.post("/signin", signIn);
