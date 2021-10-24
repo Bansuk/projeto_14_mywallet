@@ -4,7 +4,7 @@ import { transactionSchema } from "../../validation/schemes.js";
 const getTransactions = async (req, res) => {
     const token = req.headers.authorization?.replace("Bearer ", "");
 
-    if (!token) return res.sendStatus(403);
+    if (!token) return res.sendStatus(401);
 
     try {
         const session = await connection.query(
@@ -12,7 +12,7 @@ const getTransactions = async (req, res) => {
             [token]
         );
 
-        if (!session.rowCount) return res.sendStatus(401);
+        if (!session.rowCount) return res.sendStatus(403);
 
         const transactions = await connection.query(
             "SELECT * FROM transaction WHERE account_id = $1;",
