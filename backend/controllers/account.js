@@ -56,7 +56,7 @@ const signIn = async (req, res) => {
                 [token, user.account_id]
             );
 
-            res.send(token);
+            res.send({ name: user.name, token });
         } else {
             res.sendStatus(401);
         }
