@@ -3,9 +3,11 @@ import { useState } from "react";
 import GlobalStyle from "./globalStyles";
 import UserContext from "./Contexts/UserContext";
 import SignIn from "./Components/Account/SignIn";
+import SignUp from "./Components/Account/SignUp";
 
 function App() {
     const [user, setUser] = useState(null);
+
     return (
         <UserContext.Provider value={{ user }}>
             <BrowserRouter>
@@ -14,6 +16,7 @@ function App() {
                     <Route path="/" exact>
                         <SignIn setUser={setUser} />
                     </Route>
+                    <Route path="/cadastro" exact component={SignUp} />
                 </Switch>
             </BrowserRouter>
         </UserContext.Provider>

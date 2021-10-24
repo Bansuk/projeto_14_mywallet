@@ -12,4 +12,8 @@ const signInUser = user => {
     return axios.post(`${URL}signin`, user);
 };
 
-export { signInUser };
+const signUpUser = user => {
+    return axios.post(`${URL}signup`, user);
+};
+
+export { signInUser, signUpUser };
