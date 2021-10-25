@@ -22,7 +22,7 @@ const SignIn = ({ setUser }) => {
                 history.push("/balanco");
             })
             .catch(err => {
-                alert("Erro");
+                alert("Erro ao logar!");
             });
     };
 

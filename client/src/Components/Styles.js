@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
     & h1 {
         font-size: 27px;
         font-weight: 700;
-        margin: 25px 0 40px 0;
+        margin: 25px 0 40px 20px;
     }
+`;
+
+const Body = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 `;
 
 const Form = styled.form`
@@ -42,4 +44,4 @@ const Button = styled.button`
     font-size: 20px;
 `;
 
-export { Container, Form, Button };
+export { Container, Body, Form, Button };

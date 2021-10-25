@@ -1,6 +1,6 @@
-import supertest from "supertest";
 import app from "../backend/app.js";
 import connection from "../database/database.js";
+import supertest from "supertest";
 
 const testUser = {
     account_id: 8,

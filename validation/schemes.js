@@ -19,7 +19,7 @@ const signInSchema = joi.object({
 
 const transactionSchema = joi.object({
     description: joi.string().alphanum().max(30).required(),
-    value: joi.number().max(12).precision(2).required(),
+    value: joi.number().precision(2).required(),
 });
 
 export { accountSchema, signInSchema, transactionSchema };

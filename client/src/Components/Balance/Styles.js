@@ -87,12 +87,12 @@ const Total = styled.div`
 
     & .balance__value--pos {
         color: #03ac00;
-        margin-left: 185px;
+        margin-left: 180px;
     }
 
     & .balance__value--neg {
         color: #c70000;
-        margin-left: 185px;
+        margin-left: 180px;
     }
 `;
 

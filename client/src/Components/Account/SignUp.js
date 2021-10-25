@@ -14,7 +14,7 @@ const SignUp = () => {
         e.preventDefault();
 
         if (password !== passwordConfirmation) {
-            alert("");
+            alert("As senhas devem ser iguais!");
             return;
         }
 
