@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Container, Form, Button } from "./Styles";
 import { signUpUser } from "../../Services/api.services";
 
-const SignUp = ({ setUser }) => {
+const SignUp = () => {
     const history = useHistory();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");

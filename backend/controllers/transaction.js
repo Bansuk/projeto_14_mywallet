@@ -28,6 +28,33 @@ const getTransactions = async (req, res) => {
     }
 };
 
+const getBalance = async (req, res) => {
+    const token = req.headers.authorization?.replace("Bearer ", "");
+
+    if (!token) return res.sendStatus(401);
+
+    try {
+        const session = await connection.query(
+            "SELECT * FROM session WHERE token = $1;",
+            [token]
+        );
+
+        if (!session.rowCount) return res.sendStatus(403);
+
+        const sum = await connection.query(
+            "SELECT SUM(value) FROM transaction WHERE account_id = $1;",
+            [session.rows[0].account_id]
+        );
+
+        sum.rowCount
+            ? res.status(200).send(sum.rows[0].sum)
+            : res.sendStatus(204);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+};
+
 const postTransaction = async (req, res) => {
     const token = req.headers.authorization?.replace("Bearer ", "");
 
@@ -58,4 +85,4 @@ const postTransaction = async (req, res) => {
     }
 };
 
-export { getTransactions, postTransaction };
+export { getTransactions, getBalance, postTransaction };

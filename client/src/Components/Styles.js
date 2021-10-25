@@ -3,19 +3,12 @@ import styled from "styled-components";
 const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
 
     & h1 {
-        font-size: 32px;
-        font-family: "Saira Stencil One", cursive;
-        margin: 160px 0 25px 0;
-    }
-
-    & a {
-        font-size: 15px;
+        font-size: 27px;
         font-weight: 700;
-        margin-top: 35px;
+        margin: 25px 0 40px 0;
     }
 `;
 
